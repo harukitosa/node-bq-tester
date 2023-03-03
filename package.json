@@ -1,0 +1,27 @@
+{
+  "name": "node-bq-tester",
+  "version": "1.0.2",
+  "description": "bq test tool",
+  "main": "index.js",
+  "scripts": {
+    "test": "vitest",
+    "dev": "esbuild src/index.ts --bundle --platform=node --outfile=index.js && node index.js",
+    "build": "esbuild src/index.ts --bundle --platform=node --outfile=index.js",
+    "format": "eslint src/**/*.ts --fix",
+    "pretty": "prettier --write \"src/**/*.ts\"",
+    "prepare": "husky install"
+  },
+  "keywords": [],
+  "author": "Haruki Tosa <13haruki28@gmail.com> (https://twitter.com/tosa_now)",
+  "license": "ISC",
+  "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "^5.53.0",
+    "@typescript-eslint/parser": "^5.53.0",
+    "dotenv": "^16.0.3",
+    "esbuild": "^0.17.10",
+    "eslint": "^8.34.0",
+    "husky": "^8.0.3",
+    "prettier": "^2.8.4",
+    "vitest": "^0.29.0"
+  }
+}
