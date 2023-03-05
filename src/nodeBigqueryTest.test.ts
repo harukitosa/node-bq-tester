@@ -90,8 +90,8 @@ describe("nodeBigQueryTest.test.ts", () => {
                     },
                 ],
                 mockData: [{ id: "1", date: "2023-03-03 05:16:55.128000 UTC" }],
-            }]
-        )
+            },
+        ])
         const result = mock.generateSQL("SELECT * FROM `test`")
         console.log(result)
         expect(1).toBe(1)
@@ -111,9 +111,9 @@ describe("nodeBigQueryTest.test.ts", () => {
                         type: "BOOLEAN",
                     },
                 ],
-                mockData: [{ id: "1", flag: true}],
-            }]
-        )
+                mockData: [{ id: "1", flag: true }],
+            },
+        ])
         const result = mock.generateSQL("SELECT * FROM `test`")
         console.log(result)
         expect(1).toBe(1)
