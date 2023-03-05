@@ -73,4 +73,49 @@ describe("nodeBigQueryTest.test.ts", () => {
         console.log(result)
         expect(1).toBe(1)
     })
+
+    it("timestamp table test", () => {
+        // 2023-03-03 05:16:55.128000 UTC
+        const mock = new BigQueryMocker([
+            {
+                tableName: "test",
+                schama: [
+                    {
+                        name: "id",
+                        type: "STRING",
+                    },
+                    {
+                        name: "date",
+                        type: "TIMESTAMP",
+                    },
+                ],
+                mockData: [{ id: "1", date: "2023-03-03 05:16:55.128000 UTC" }],
+            }]
+        )
+        const result = mock.generateSQL("SELECT * FROM `test`")
+        console.log(result)
+        expect(1).toBe(1)
+    })
+
+    it("boolean table test", () => {
+        const mock = new BigQueryMocker([
+            {
+                tableName: "test",
+                schama: [
+                    {
+                        name: "id",
+                        type: "STRING",
+                    },
+                    {
+                        name: "flag",
+                        type: "BOOLEAN",
+                    },
+                ],
+                mockData: [{ id: "1", flag: true}],
+            }]
+        )
+        const result = mock.generateSQL("SELECT * FROM `test`")
+        console.log(result)
+        expect(1).toBe(1)
+    })
 })

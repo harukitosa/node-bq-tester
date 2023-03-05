@@ -4,7 +4,7 @@ import { TableField } from "@google-cloud/bigquery"
 interface mockTestTable {
     tableName: string
     schama: TableField[]
-    mockData: Record<string, number | string>[]
+    mockData: Record<string, number | string | boolean>[]
 }
 
 export class BigQueryMocker {
@@ -36,6 +36,10 @@ export class BigQueryMocker {
                         if (schame.type === "STRING") {
                             sql.push(`"${value}" ${key} `)
                         } else if (schame.type === "NUMBER") {
+                            sql.push(`${value} ${key} `)
+                        } else if (schame.type === "TIMESTAMP") {
+                            sql.push(`TIMESTAMP("${value}") ${key} `)
+                        } else if (schame.type === "BOOLEAN") {
                             sql.push(`${value} ${key} `)
                         } else {
                             throw new Error("not support type")
