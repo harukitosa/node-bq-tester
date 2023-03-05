@@ -17,6 +17,6 @@ describe("nodeBigQueryTest.test.ts", () => {
             ],
         })
         console.log(result)
-        	// expect(result).toBe()
+        // expect(result).toBe()
     })
 })

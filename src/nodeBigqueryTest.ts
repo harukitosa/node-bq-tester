@@ -22,7 +22,6 @@ const mockTestTable = (tableName: string, mockData: Record<string, number | stri
         }
         valueList.push("SELECT " + sql.join(","))
     })
-
     return `WITH ${tableName} AS (
 ${valueList.map((value) => value).join("\nUNION ALL\n")}
 )
