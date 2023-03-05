@@ -1,9 +1,9 @@
 import { describe, it, expect } from "vitest"
-import { mockTestSQL } from "./nodeBigqueryTest"
+import { BigQueryMocker } from "./nodeBigqueryTest"
 
 describe("nodeBigQueryTest.test.ts", () => {
     it("one mock table test", () => {
-        const result = mockTestSQL("SELECT * FROM `test`", [
+        const mock = new BigQueryMocker([
             {
                 tableName: "test",
                 schama: [
@@ -22,12 +22,13 @@ describe("nodeBigQueryTest.test.ts", () => {
                 ],
             },
         ])
+        const result = mock.generateSQL("SELECT * FROM `test`")
         console.log(result)
         expect(1).toBe(1)
     })
 
     it("two mock table test", () => {
-        const result = mockTestSQL("SELECT * FROM `test` JOIN `test2` ON test.id = test2.id", [
+        const mock = new BigQueryMocker([
             {
                 tableName: "test",
                 schama: [
@@ -68,6 +69,7 @@ describe("nodeBigQueryTest.test.ts", () => {
                 mockData: [{ id: "1", name: "test", age: 10 }],
             },
         ])
+        const result = mock.generateSQL("SELECT * FROM `test` JOIN `test2` ON `test`.`id` = `test2`.`id`")
         console.log(result)
         expect(1).toBe(1)
     })
