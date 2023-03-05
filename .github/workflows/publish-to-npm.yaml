@@ -1,9 +1,4 @@
 name: Publish To npm
-on:
-  push:
-    branches:
-      - main
-  workflow_dispatch:
 jobs:
   publish-to-npm:
     runs-on: ubuntu-latest
