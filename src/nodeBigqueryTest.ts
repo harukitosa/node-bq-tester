@@ -34,5 +34,5 @@ const mockTestTable = (table: mockTestTable) => {
         }
         valueList.push("SELECT " + sql.join(","))
     })
-    return {tableName: table.tableName, sql: `${valueList.map((value) => value).join("\nUNION ALL\n")}`}
+    return { tableName: table.tableName, sql: `${valueList.map((value) => value).join("\nUNION ALL\n")}` }
 }

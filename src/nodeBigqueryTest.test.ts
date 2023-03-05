@@ -3,23 +3,25 @@ import { mockTestSQL } from "./nodeBigqueryTest"
 
 describe("nodeBigQueryTest.test.ts", () => {
     it("one mock table test", () => {
-        const result = mockTestSQL("SELECT * FROM `test`", [{
-            tableName: "test",
-            schama: [
-                {
-                    name: "name",
-                    type: "STRING",
-                },
-                {
-                    name: "age",
-                    type: "NUMBER",
-                },
-            ],
-            mockData: [
-                {name: "test", age: 10},
-                {name: "test2", age: 20},
-            ]
-        }])
+        const result = mockTestSQL("SELECT * FROM `test`", [
+            {
+                tableName: "test",
+                schama: [
+                    {
+                        name: "name",
+                        type: "STRING",
+                    },
+                    {
+                        name: "age",
+                        type: "NUMBER",
+                    },
+                ],
+                mockData: [
+                    { name: "test", age: 10 },
+                    { name: "test2", age: 20 },
+                ],
+            },
+        ])
         console.log(result)
         expect(1).toBe(1)
     })
@@ -43,9 +45,9 @@ describe("nodeBigQueryTest.test.ts", () => {
                     },
                 ],
                 mockData: [
-                    {id: "1", name: "test", age: 10},
-                    {id: "2", name: "test2", age: 20},
-                ]
+                    { id: "1", name: "test", age: 10 },
+                    { id: "2", name: "test2", age: 20 },
+                ],
             },
             {
                 tableName: "test2",
@@ -63,9 +65,7 @@ describe("nodeBigQueryTest.test.ts", () => {
                         type: "NUMBER",
                     },
                 ],
-                mockData: [
-                    {id: "1", name: "test", age: 10},
-                ]
+                mockData: [{ id: "1", name: "test", age: 10 }],
             },
         ])
         console.log(result)
