@@ -1,11 +1,7 @@
 # node-bq-tester
-GetStart
 
-README.web_modules
-node_modules
-package-lock.json
-package.json
-src
+# 概要
+BigQueryへのSQLのテーブル参照をモックしてテストするためのツールです。
 
 
 # publish
