@@ -4,7 +4,7 @@ import { generateSQL } from "./nodeBigqueryTest"
 describe("nodeBigQueryTest.test.ts", () => {
     it("one mock table test", () => {
         const mockSQL = generateSQL("SELECT * FROM `test`", {
-            "test": {
+            test: {
                 schema: [
                     {
                         name: "name",
